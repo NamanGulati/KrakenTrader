@@ -201,13 +201,13 @@ public class Trader {
 	}
 
 	public static void sendMail(String msg) throws AddressException, MessagingException{
-		String to="gula1214@gmail.com";
-		String from="gula1214@gmail.com";
+		String from="*your email*";
+		String to="*recipient email*";
 		Properties props = System.getProperties();
 		String host = "smtp.gmail.com";
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.host", host);
-		props.put("mail.smtp.user", "gula1214@gmail.com");
+		props.put("mail.smtp.user", from);
 		props.put("mail.smtp.password", Val.pwd);
 		props.put("mail.smtp.port", "587");
 		props.put("mail.smtp.auth", "true");
@@ -216,7 +216,7 @@ public class Trader {
 		MimeMessage message = new MimeMessage(session);
 
 
-		message.setFrom(new InternetAddress("gula1214@gmail.com"));
+		message.setFrom(new InternetAddress(from));
 		InternetAddress toAddress = new InternetAddress(to);
 
 		// To get the array of addresses
